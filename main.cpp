@@ -13,7 +13,13 @@
 using std::cout, std::wcout, std::cin, std::wcin, std::endl, std::cerr, std::string, std::wstring, std::string_view, std::vector, std::pair, std::getline, std::ifstream, std::ofstream, std::fstream, std::regex, std::wregex, std::smatch, std::wsmatch, std::sregex_iterator, std::wsregex_iterator, std::istreambuf_iterator;
 using namespace std::filesystem;
 using namespace std::literals::string_literals;
-using namespace std::literals::string_view_literals; 
+using namespace std::literals::string_view_literals;
+
+auto generate_random_number_between (auto min, auto max) noexcept -> {
+	static thread_local auto engine = std::default_random_engine {std::random_device {} ()};
+	auto dist = std::uniform_int_distribution<> {0, (int) knowledge.size ()};
+	return dist (engine);
+}
 
 constexpr auto USE_REGEX = false;
 
@@ -21,6 +27,7 @@ constexpr auto saves_file_name = "saves.toml";
 auto saves = fstream {};
 
 void sigint_handler(int sig) {
+	cout << "interrupt!" << endl;
 	/* using a char[] so that sizeof will work */
 	// const char msg[] = "Ahhh! SIGINT!\n";
 	// write(0, msg, sizeof(msg));
@@ -30,19 +37,18 @@ void sigint_handler(int sig) {
 }
 
 
-
-auto main () -> int {
-	{
-		struct sigaction sa = {};
-		sa.sa_handler = sigint_handler;
+auto setup_interrupt_handle (void (*handler) (int)) noexcept -> void {
+	struct sigaction sa = {};
+		sa.sa_handler = handler;
 		sa.sa_flags = 0;
 
 		if (sigaction (SIGINT, &sa, NULL) == -1) {
 			cerr << "internal error >> sigaction" << endl;
 			exit(1);
 		}
-	}
+}
 
+auto get_file_content_as_string (auto const& file_path) noexcept -> auto {
 	saves.open (saves_file_name);
 	if (not saves.is_open ()) {
 		cerr << "internal error >> no save file named \"" << saves_file_name << "\"" << endl;
@@ -51,6 +57,25 @@ auto main () -> int {
 
 	auto const content = string {istreambuf_iterator<char> {saves}, istreambuf_iterator<char> {}};
 	saves.close ();
+	return content;
+}
+
+
+
+auto main () -> int {
+	// {
+	// 	struct sigaction sa = {};
+	// 	sa.sa_handler = sigint_handler;
+	// 	sa.sa_flags = 0;
+
+	// 	if (sigaction (SIGINT, &sa, NULL) == -1) {
+	// 		cerr << "internal error >> sigaction" << endl;
+	// 		exit(1);
+	// 	}
+	// }
+
+	setup_interrupt_handle (sigint_handler);
+	auto const& content = get_file_content_as_string (saves_file_name);
 
 	// Demand "[questions]"
 	// auto pattern = regex {R"(\[questions\])"};
@@ -104,12 +129,11 @@ auto main () -> int {
 			knowledge.back().second.pop_back();
 		}
 
-		static thread_local auto engine = std::default_random_engine {std::random_device {} ()};
+		
 		
 		for (auto i = 0; i < knowledge.size (); ++i) {
-			auto dist = std::uniform_int_distribution<> {0, (int) knowledge.size ()};
-			auto rand = dist (engine);
-			auto iter = knowledge.begin () + rand;
+			
+			auto iter = knowledge.begin () + generate_random_number_between (0, knowledge.size ());
 			// auto iter = knowledge.begin () + i;
 			auto& question = iter -> first;
 			auto& answer = iter -> second;
