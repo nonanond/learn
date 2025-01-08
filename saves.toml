@@ -1,0 +1,228 @@
+[questions]
+
+# Överblick
+
+"Vad står OSI för?" = "Open Systems Interconnection"
+
+"När togs OSI modellen fram?" = "1980"
+
+"Vilka tog fram OSI modellen?" = "ISO, internationella standardiseringsorganisationen"
+
+"Vad gör applikationslagret?" = "Den förser användarna med nätverkstjänster"
+
+"Vad gör presentationslagret?" = "Dän ser till att informationen från sändaren blir begriplig för mottagaren"
+
+"Vad gör sessionslagret?" = "Det initierar kommunikation. Etablerar, upprätthåller och synkroniserar dialog mellan enheter"
+
+"Vad är transportlagrets viktigaste uppgift?" = "Att se till att kommunikationen når rätt applikation."
+
+"Vad är nätverkslagrets viktigaste uppgift?" = "Att se till att host till host kommunikationen fungerar. Den skall hitta rätt väg på nätverket."
+
+"Vad är datalänkslagrets uppgift?" = "Att sköta kommunikationen på den lokala länken. Alltså från nätverkskort till nästa nätverkskort påvägen mot destinationen."
+
+"Vad gör det fysiska lagret?" = "Det fysiska lagret definierar nätverkets fysiska struktur, mekaniska och elektriska specifikationer."
+
+"Vilket lager ligger protokollet TCP?" = "Transportlagret"
+
+"Vilket lager tillhör switchen och vad agerar den?" = "Den agerar vägväljare på lager två"
+
+# Fysiska lagret
+
+"Vad ansvarar det fysiska lagret för?" = "Det fysiska lagret ansvarar för att transportera bitar och hur dessa skall kodas."
+
+"Nämn tre ting som finns på det fysiska lagret." = "Hubbar, nätverkskort och kablar"
+
+"Nämn tre överföringsmedium" = "Koppar, Fiber, Trådlöst"
+
+"Vad är digitalisering?" = "Att konvertera från det analoga till det digitala"
+
+"Vad betyder sampling?" = "Att ta prover med viss regelbundhet"
+
+"En signal kan skickas på två sätt, vilka?" = "Med analog transmission eller digital transmission"
+
+"Hur kan man koda en digital signal?" = "NRZ (Non return to zero) där exempelvis en etta representeras av positiv spänningsnivå medan en nolla representeras av en negativ spänningsnivå."
+
+"Vilken brist har NRZ?" = "Synkronisering mellan sändare och mottagare."
+
+"I vilken digital transmissionskodning utnyttjas flankerna för synkronisering?" = "Manchest kodning, där spänningsförändringen styr om det är en nolla eller en etta."
+
+"Hur kodar man en analog signal?" = "Med modulering."
+
+"Vilka slags moduleringar finns för analoga signaler?" = "Amplitudmodulering, frekvensmodulering och fasmodulering."
+
+"Hur kodar man ettor och nollor men amplitudmodulering?" = "Exempelvis kodas större amplitudnivåer som ettor medan svagare amplitudnivåer kodas som nollor."
+
+"Hur används frekvensmodulering för kodning av en analog signal?" = "Exempelvis en snabbare frekvens motsvarar en etta medan en långsammare frekvens motsvarar en nolla."
+
+"Hur kodas en analog signal med hjälp av fasmodulering?" = "Olika faser mosvarar olika värden."
+
+"Vilken är den vanligaste orsaken till sämre signalkvalite?" = "Dämpning, signalenergin minskar"
+
+"Hur kan man motverka att signalkvaliten dämpas?" = "Med förstärkare"
+
+"Vad kan leda till sämre signalkvalite?" = "Dämpning, distorsion, brus och överhörning"
+
+"Hur påverkas signalen av distorsion?" = "Signalen ändrar form, så när signalen har färdats en bit så missformas dem."
+
+"Med vad kan man motverka distorsion?" = "Med en repeater eller en hubb. Då kan man återskapa signalen innan den blir alldeles förvrängd."
+
+"Vad är viktigt för att kunna undkomma distorsion?" = "En tillräckligt stark styrka i signalen"
+
+"När kan överhörning bli ett problem för signalkvaliten?" = "När en länk störs av en annan, tex för parkablar"
+
+"Vad är transmissionshastighet?" = "Hur många bitar man kan skicka per sekund"
+
+"Vad är utbredningshastighet?" = "Hur långt signalen kommer på en sekund"
+
+"Vilka olika TP (Twisted Pair) kablar finns det?" = "UTP, STP, ScTP och S/STP"
+
+"Vad består en UTP kabel av?" = "En yttre isolering samt åtta stycken koppartrådar tvinnade parvis med varsin isolering runtomkring."
+
+"Vad står ScTP för?" = "Screened unshielded twisted pair."
+
+"Hur sen en ScTP kabel ut?" = "Som en UTP fast med metallfolje innanför den yttre isolering."
+
+"Hur sen en STP kabel ut?" = "Som en UTP fast med metallfolje runt varje tvinnade trådpar."
+
+"Hur sen en S/STP kabel ut?" = "Som en UTP fast med metallfolje innanför den yttre isoleringen samt metallfolje runt varje tvinnat trådpar."
+
+"Vilka två varianter av fiberkablar finns det?" = "Multimode och single mode"
+
+"Vad är skillnaden mellan single mode fiberkabel och multimode fiberkabel?" = "Tjockleken på glaset i kabeln, samt att single mode använder laser och multimode använder LED"
+
+"På vilka tre sätt kan utbyte av data ske över en länk?" = """Simplex - endast i en riktning
+	Halv duplex - i båda riktningarna men inte samtidigt
+	Full duplex - i båda riktningarna samtidigt"""
+
+"Hur undviker man krockar vid full duplex?" = "Med hjälp av multiplexering"
+
+"Vad är multiplexering?" = "Ett sätt att skicka en flera signaler samtidigt i form av en enda komplex signal."
+
+"Vilka olika sätt kan man multiplexera signaler?" = "Frekvensmultiplexering, Tidsmultiplexering, Rumsmultiplexering"
+
+# Datalänk
+
+"Vad är multiplexering?" = "Ett sätt att sända flera signaler samtidigt som en signal över ett medium"
+
+"Vad är lager tvås uppgifter?" = """Identifiera datorer och annan nätverksutrustning på det lokala nätverket.
+Att sköta nätaccess, hur och när man får tillgång till överföringsmediet."""
+
+"Vad är datalänkslagrets viktigaste uppgift?" = "Att se till att ramarna kommer till rätt nätverkskort."
+
+"Hur indentifierar lager två datorer och annan nätverksutrustning?" = "Med en fysisk address som finns inbränd i nätverkskortet."
+
+"Hur delas kommunikationen upp i lager två?" = "Kommunikationen delas upp i ramar/frames."
+
+"Vilken nätverksenhet opererar på lager två?" = "Switchar opererar på lager två."
+
+"Hur många överföringsmedium går en datalänk över?" = "Ett överföringsmedium"
+
+"Varför finns olika länkteknologier?" = "Olika överföringsmedium har olika krav vilket innebär olika länkteknologier."
+
+"Varför har olika överföringsmedium olika länkteknologier?" = "Olika överföringsmedium har olika krav, exempelvis ett medium där många kan ha tillgång samtidigt måste ha en teknologi som hanterar kollisioner."
+
+"Vilka behov finns det som länkteknologien/länkprotokollet måste hantera och som det fysiska lagret inte klarar av?" = """Felhantering
+Starthantering
+Stophantering
+Kollisionshantering
+Addressering"""
+
+"Hur upptäcker lager två om det uppstått fel i ramarna?" = "Med en checksumma/kontrollbitar. Det finns två typer av checksummor. Cyclic Redundancy Check (CRC) och Parity checking (paritetsbitar). Med parity checking kan man även rätta mindre fel."
+
+"Vad gör man om fel uppstår och lagning inte går?" = "Antingen kastar man ramen eller så gör man en omsändning."
+
+"Hur brukar man hantera fel som sker i ett överföringsmedium med mycket fel?" = "Med omsändningar"
+
+"Hur brukar man hantera fel som sker i överföringsmedium med få fel?" = "Kasta ramen"
+
+"Vad står ARQ för?" = "Automatic repeat request"
+
+"Hur löser man omsändningar?" = "Med automatic repeat request (ARQ), med hjälp av sekvensnummer och acknowledgement (ACK). Med sekvensnummer märker man ramarna som skickas och på så sätt kan mottagaren se om något saknas. Mottagaren skickar ACK med kvitto på vad den fått och på så sätt kan sändaren se om något måste skickas om. "
+
+"Hur många varianter av ARQ finns det?" = "Två" 
+
+"Vilka varianter av ARQ finns det?" = """Stop and wait ARQ 
+Go back N ARQ """
+
+"Hur fungerar stop and wait ARQ?" = "Sändaren startar en timer när den har skickat en ram. När timern går ut och sändaren fortfarande inte fått något ACK av mottagaren så skickar sändaren om ramen."
+
+"Vad är nackdelen med stop and wait ARQ?" = "Under tiden sändaren väntar på ett ACK gör den ingenting. Det är bra om man kan använda mediumet och skicka så mycket som möjligt."
+
+"Hur fungerar go back N ARQ?" = """Sändaren har ett fönster med flera ramar som den vill skicka. Eftersom sändaren kan skicka flera 
+ramar åt gången blir den effektivare och får vänta mindre."""
+
+"Nämn två länkprotokoll." = """High-level Data Link Control (HDLC)
+Point-to-point protocol (PPP)"""
+
+"Vilken accessmetod som används beror på?" = "Överföringsmediet och nättopologin"
+
+"Vilka nättopologier finns?" = """Buss
+Ring 
+Stjärna
+Trådlöst"""
+
+"Accessmetod kallas även något annat. Vad?" = "Medium access control (MAC)"
+
+"Vad är en accessmetod?" = "Gemensamma regler för hur man skall få access till länken."
+
+"Vad skall accessmetoden göra?" = "Förhindra kollisioner och ta hand om de kollisioner som uppstår."
+
+"Nämn fyra accessmetoder" = """Pollning
+Token Ring 
+ALOHA
+CSMA/CD (Carrier Sense Multiple Access/Collision Detection)"""
+
+"Vad står Carrier Sense för i CSMA/CD?" = "Nätverkskortet sänder ingenting om den känner att något annat nätverkskort sänder."
+
+"Vad står Collision Detection för i CSMA/CD?" = "Nätverkskortet avbryter transmission om den hör att någon annan sänder."
+
+"Om det blir en kollision vid användning av CSMA/CD, vad gör nätverkskortet då?" = "Väntar en random time innan den sänder igen."
+
+"Vilka olika typer av MAC addresser finns det?" = """Unicast address 
+Broadcast address 
+Multicast address"""
+
+"När används unicast address?" = "Vid kommunikation en till en"
+
+"När används broadcast address?" = "Vid kommmunikation en till alla"
+
+"När används multicast address?" = "Vid kommunikation en till många"
+
+"Vilka skapar standarder för lager ett och två?" = "IEEE, Institute of Electrical and Electronics Engineers"
+
+"Vilken är standarden för trådlös kommunikation?" = "IEEE 802.11"
+
+"Vilken är standarden för Ethernet?" = "IEEE 802.3"
+
+"Vad kan man säga att LAN teknologi är?" = "En accessnätsteknologi"
+
+"Vilken teknologi är dominant som LAN teknologi?" = "Ethernet" 
+
+"Vad skiljer olika varianter av Ethernet åt?" = "Hastighet och medium som används "
+
+"Hur ser Ethernet ramar ut?" = """
+------------------------------------------------------------
+| preamble | dst address | src address | type | data | CRC |				
+------------------------------------------------------------
+"""
+
+"hur många bytes är en MAC address?" = "6 bytes"
+
+"hur många bitar är en MAC address?" = "48 bitar"
+
+"vad gör första delen i MAC addressen?" = "Talar om tillverkare nätverkskortet har"
+
+"vad gör andra delen i MAC addressen?" = "Ger nätverkskortet en unik address"
+
+"Ethernet är connectionless, vad innebär det?" = "ingen handskakning mellan sändande och mottagande nätverkskort"
+
+"Ethernet är opålitligt, varför det?" = "mottagande nätverkskort skickar inga acks eller nacks till sändaren"
+
+"Ethernet är opålitligt, vad innebär det?" = "gapen fylls av TCP"
+
+
+ld1 = 1979-05-27
+
+lt1 = 07:32:00
+
+ldt1 = 1979-05-27T07:32:00
